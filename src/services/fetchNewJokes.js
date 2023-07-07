@@ -1,4 +1,5 @@
 import axios from "axios";
+// hooks(funcs)
 
 export default function fetchNewJokes(onUpdateJokes, onUpdateLoaded) {
   // loading btn: false->true->after loading->false

@@ -14,13 +14,24 @@ export default class App extends Component {
     };
     this.handleUpdateJokes = this.handleUpdateJokes.bind(this);
     this.handleUpdateLoaded = this.handleUpdateLoaded.bind(this);
-    !this.state.jokes.length &&
-      fetchNewJokes(this.handleUpdateJokes, this.handleUpdateLoaded);
+  }
+  //überschreiben
+  componentDidMount() {
+    fetchNewJokes((newJokes) => {
+      this.setState({ jokes: newJokes });
+    }, this.handleUpdateLoaded);
   }
 
   handleUpdateJokes(newJokes) {
-    this.setState({ jokes: [...this.state.jokes, ...newJokes] });
+    const newJokesArray = [...this.state.jokes];
+    newJokes.forEach((newJoke) => {
+      if (!newJokesArray.find((joke) => joke.id === newJoke.id))
+        newJokesArray.push(newJoke);
+    });
+
+    this.setState({ jokes: newJokesArray });
   }
+
   handleUpdateLoaded(newIsLoaded) {
     this.setState({ isLoaded: newIsLoaded });
   }
