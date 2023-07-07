@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Joke from "./Joke";
-import "./JokeList.scss";
+// import Joke from "./Joke";
+import "./JokeList.css";
 
 export default class JokeList extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      upDown: 0,
       joke: "",
       jokeList: [],
       isLoaded: false,
@@ -87,7 +88,8 @@ export default class JokeList extends Component {
   //         ),
 
   render() {
-    const { jokeList, isLoaded } = this.state;
+    const { jokeList, isLoaded, joke } = this.state;
+
     return (
       <div className='JokeList'>
         {isLoaded ? (
@@ -95,20 +97,23 @@ export default class JokeList extends Component {
         ) : (
           <div className='jokebox-flex'>
             {/* flex left sollte auch kommen */}
+            <aside className='jokebox-flex__left'>
+              <h1>Dad Jokes</h1>
+              <p>emoji placeholder{!this.props.isLoaded}</p>
+              <button onClick={this.getNewJokes}>New Jokes</button>
+            </aside>
             <div className='jokebox-flex__right'>
               {jokeList.map((j) => (
                 <div key={j.id} joke={j.joke}>
                   <div className='test'>
                     <button onClick={this.handleUp}>^</button>
-                    <button>{this.state.upVotes}</button>
+                    <button>{this.state.upDown}</button>
                     <button onClick={this.handleDown}>v</button>
                   </div>
-                  <p>{this.props.joke}</p>
+                  <p>{joke}</p>
                   <button>^</button>
                 </div>
               ))}
-
-              {/* </div> */}
             </div>
           </div>
         )}
