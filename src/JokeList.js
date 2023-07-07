@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import axios from "axios";
-import JokeItem from "./JokeItem";
+import axios from "axios";
+import Joke from "./Joke";
 import "./JokeList.scss";
 
 export default class JokeList extends Component {
@@ -49,17 +49,17 @@ export default class JokeList extends Component {
     this.setState({ isLoaded: false });
   }
 
-  handleUp(id) {
-    this.setState((prevState) => {
-      const updatedJokeList = prevState.jokeList.map((joke) => {
-        if (joke.id === id) {
-          return { ...joke, upDown: joke.upDown + 1 };
-        }
-        return joke;
-      });
-      return { jokeList: updatedJokeList };
-    });
-  }
+  //   handleUp(id) {
+  //     this.setState((prevState) => {
+  //       const updatedJokeList = prevState.jokeList.map((joke) => {
+  //         if (joke.id === id) {
+  //           return { ...joke, upDown: joke.upDown + 1 };
+  //         }
+  //         return joke;
+  //       });
+  //       return { jokeList: updatedJokeList };
+  //     });
+  //   }
 
   handleUp(id) {
     this.setState((st) => ({
@@ -94,10 +94,21 @@ export default class JokeList extends Component {
           <div className='loading' />
         ) : (
           <div className='jokebox-flex'>
+            {/* flex left sollte auch kommen */}
             <div className='jokebox-flex__right'>
               {jokeList.map((j) => (
-                <JokeItem key={j.id} joke={j.joke} />
+                <div key={j.id} joke={j.joke}>
+                  <div className='test'>
+                    <button onClick={this.handleUp}>^</button>
+                    <button>{this.state.upVotes}</button>
+                    <button onClick={this.handleDown}>v</button>
+                  </div>
+                  <p>{this.props.joke}</p>
+                  <button>^</button>
+                </div>
               ))}
+
+              {/* </div> */}
             </div>
           </div>
         )}
