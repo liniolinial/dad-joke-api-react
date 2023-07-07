@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Button from "./Button/Button";
-import fetchNewJokes from "../services/fetchNewJokes";
+import Button from "../Button/Button";
+import fetchNewJokes from ".../s";
 
 export default class Sidebar extends Component {
   constructor(props) {
