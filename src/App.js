@@ -15,7 +15,7 @@ export default class App extends Component {
     this.handleUpdateJokes = this.handleUpdateJokes.bind(this);
     this.handleUpdateLoaded = this.handleUpdateLoaded.bind(this);
   }
-  //überschreiben
+  //überschreiben initial value (damit ich kein verdoppelte componentDM in konsole kriege.)
   componentDidMount() {
     fetchNewJokes((newJokes) => {
       this.setState({ jokes: newJokes });
