@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import JokeItem from "../JokeItem/JokeItem";
-import "./JokeList.scss";
+import "../JokeList/JokeList.scss";
 
 export default class JokeList extends Component {
   // mindmap

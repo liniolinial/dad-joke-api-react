@@ -9,7 +9,6 @@ export default class App extends Component {
     super(props);
     this.state = {
       initialPage: 1,
-      initialLimit: 10,
       jokes: [],
       isLoaded: true,
     };

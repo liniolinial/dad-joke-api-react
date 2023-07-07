@@ -6,21 +6,25 @@
   max-height: 40rem;
   padding: 20px;
 }
+
 .jokebox-flex__left,
 .jokebox-flex__right {
   display: inherit;
   flex-direction: column;
 }
+
 .jokebox-flex__left {
   background-color: rgb(135, 107, 211);
   color: white;
   justify-content: center;
   padding: 0 10px;
 }
+
 .jokebox-flex__right {
   background-color: white;
   overflow: scroll;
 }
+
 .jokebox-flex__jokelist {
   display: inherit;
   justify-content: space-between;
@@ -33,6 +37,7 @@
   border-top: solid rgb(241, 241, 241) 0.2px;
   border-bottom: solid rgb(241, 241, 241) 0.2px;
 }
+
 .jokebox-flex__jokelist .test {
   display: flex;
 }

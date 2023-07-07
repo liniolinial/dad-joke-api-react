@@ -1,7 +1,11 @@
 import axios from "axios";
 // hooks(funcs)
 
-export default function fetchNewJokes(onUpdateJokes, onUpdateLoaded) {
+export default function fetchNewJokes(
+  initialPage,
+  onUpdateJokes,
+  onUpdateLoaded,
+) {
   // loading btn: false->true->after loading->false
   onUpdateLoaded(false);
 
@@ -10,16 +14,13 @@ export default function fetchNewJokes(onUpdateJokes, onUpdateLoaded) {
   const data = [];
 
   //load data
-
-  // let request = axios.get("https://icanhazdadjoke.com/", {
-  //   headers: { Accept: "application/json" },
-  // });
   let request = axios.get(
-    `https://icanhazdadjoke.com/search?application/json?page=${this.props.initialPage}&limit=${this.props.initialLimit}`,
+    `https://icanhazdadjoke.com/?page=${initialPage}&limit=10`,
     {
       headers: { Accept: "application/json" },
     },
   );
+
   request.then((response) => {
     const { id, joke } = response.data;
 

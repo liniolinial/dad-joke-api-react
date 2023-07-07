@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Button from "../Button/Button";
-import fetchNewJokes from ".../s";
+import fetchNewJokes from "../../services/fetchNewJokes";
 
 export default class Sidebar extends Component {
   constructor(props) {
@@ -11,7 +11,11 @@ export default class Sidebar extends Component {
 
   handleClick() {
     console.log("click ");
-    fetchNewJokes(this.props.onUpdateJokes, this.props.onUpdateLoaded);
+    fetchNewJokes(
+      this.props.initialPage,
+      this.props.onUpdateJokes,
+      this.props.onUpdateLoaded,
+    );
   }
 
   render() {
