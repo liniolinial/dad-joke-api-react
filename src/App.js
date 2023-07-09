@@ -14,6 +14,7 @@ export default class App extends Component {
     };
     this.handleUpdateJokes = this.handleUpdateJokes.bind(this);
     this.handleUpdateLoaded = this.handleUpdateLoaded.bind(this);
+    this.handleUpdatePage = this.handleUpdatePage.bind(this);
   }
 
   //überschreiben initial value (damit ich kein verdoppelte componentDM in konsole kriege.)
@@ -21,6 +22,14 @@ export default class App extends Component {
     fetchNewJokes((newJokes) => {
       this.setState({ jokes: newJokes });
     }, this.handleUpdateLoaded);
+  }
+
+  handleUpdatePage() {
+    if (this.initialPage < 75) {
+      this.setState((st) => ({
+        initialPage: st.initialPage + 1,
+      }));
+    }
   }
 
   handleUpdateJokes(newJokes) {
@@ -40,6 +49,7 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Sidebar
+          onUpdatePage={this.handleUpdatePage}
           onUpdateJokes={this.handleUpdateJokes}
           onUpdateLoaded={this.handleUpdateLoaded}
           isLoaded={this.state.isLoaded}

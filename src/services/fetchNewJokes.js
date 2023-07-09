@@ -2,7 +2,7 @@ import axios from "axios";
 // hooks(funcs)
 
 export default function fetchNewJokes(
-  initialPage,
+  onUpdatePage,
   onUpdateJokes,
   onUpdateLoaded,
 ) {
@@ -15,7 +15,7 @@ export default function fetchNewJokes(
 
   //load data
   let request = axios.get(
-    `https://icanhazdadjoke.com/?page=${initialPage}&limit=10`,
+    `https://icanhazdadjoke.com/?page=${this.props.initialPage}&limit=10`,
     {
       headers: { Accept: "application/json" },
     },

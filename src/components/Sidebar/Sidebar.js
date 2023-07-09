@@ -12,7 +12,7 @@ export default class Sidebar extends Component {
   handleClick() {
     console.log("click ");
     fetchNewJokes(
-      this.props.initialPage,
+      this.props.onUpdatePage,
       this.props.onUpdateJokes,
       this.props.onUpdateLoaded,
     );
