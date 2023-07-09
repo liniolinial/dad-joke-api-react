@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import Button from "./Button";
+import Button from "../Button/Button";
+import "../JokeList/JokeList.scss";
 
-import "./JokeList.scss";
-
-// in diesem Coponent: emoji und num btn?
 export default class JokeItem extends Component {
   constructor(props) {
     super(props);

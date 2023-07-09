@@ -1,6 +1,6 @@
 import "./App.scss";
-import Sidebar from "./components/Sidebar";
-import JokeList from "./components/JokeList";
+import Sidebar from "./components/Sidebar/Sidebar";
+import JokeList from "./components/JokeList/JokeList";
 import fetchNewJokes from "./services/fetchNewJokes";
 
 import React, { Component } from "react";

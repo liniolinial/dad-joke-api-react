@@ -2,14 +2,11 @@ import axios from "axios";
 // hooks(funcs)
 
 export default function fetchNewJokes(onUpdateJokes, onUpdateLoaded) {
-  // loading btn: false->true->after loading->false
   onUpdateLoaded(false);
-
-  // first loading then call api
 
   const fetches = [];
   const data = [];
-  //load data
+
   for (let i = 0; i < 10; i++) {
     let request = axios.get("https://icanhazdadjoke.com/", {
       headers: { Accept: "application/json" },
@@ -17,7 +14,6 @@ export default function fetchNewJokes(onUpdateJokes, onUpdateLoaded) {
 
     request.then((response) => {
       const { id, joke } = response.data;
-      // deny jokes which have duplicated id
       const isDuplicate = data.some((j) => j.id === id);
 
       if (!isDuplicate) {
