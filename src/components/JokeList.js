@@ -88,7 +88,7 @@ export default class JokeList extends Component {
   //         ),
 
   render() {
-    const { jokeList, isLoaded, joke } = this.state;
+    const { jokeList, isLoaded } = this.state;
 
     return (
       <div className='JokeList'>
@@ -101,6 +101,7 @@ export default class JokeList extends Component {
               <h1>Dad Jokes</h1>
               <p>emoji placeholder{!this.props.isLoaded}</p>
               <button onClick={this.getNewJokes}>New Jokes</button>
+              <p>{jokeList.length}</p>
             </aside>
             <div className='jokebox-flex__right'>
               {jokeList.map((j) => (
