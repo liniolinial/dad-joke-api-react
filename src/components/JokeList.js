@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 // import Joke from "./Joke";
-import "./JokeList.css";
+import "./JokeList.scss";
 
 export default class JokeList extends Component {
   constructor(props) {
@@ -104,14 +104,17 @@ export default class JokeList extends Component {
             </aside>
             <div className='jokebox-flex__right'>
               {jokeList.map((j) => (
-                <div key={j.id} joke={j.joke}>
-                  <div className='test'>
+                <div
+                  className='jokebox-flex__jokelist'
+                  key={j.id}
+                  joke={j.joke}>
+                  <div className='jokebox-flex__test'>
                     <button onClick={this.handleUp}>^</button>
                     <button>{this.state.upDown}</button>
                     <button onClick={this.handleDown}>v</button>
                   </div>
-                  <p>{joke}</p>
-                  <button>^</button>
+                  <p>{j.joke}</p>
+                  <button className='jokebox-flex__test'>^</button>
                 </div>
               ))}
             </div>

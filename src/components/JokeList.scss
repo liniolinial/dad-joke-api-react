@@ -25,7 +25,7 @@
   }
 
   &__jokelist {
-    display: inherit;
+    display: flex;
     justify-content: space-between;
     text-align: left;
     flex-direction: row;
@@ -35,10 +35,10 @@
     padding: 10px 20px;
     border-top: solid rgb(241, 241, 241) 0.2px;
     border-bottom: solid rgb(241, 241, 241) 0.2px;
-
-    .test {
-      display: flex;
-    }
+  }
+  &__test {
+    display: inherit;
+    align-items: center;
   }
 }
 
@@ -54,6 +54,7 @@
   left: 0;
   bottom: 0;
   right: 0;
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
 }
 
 /* Transparent Overlay */
