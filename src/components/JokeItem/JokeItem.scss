@@ -1,0 +1,18 @@
+.jokeitem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  border-top: solid rgb(241, 241, 241) 0.2px;
+  border-bottom: solid rgb(241, 241, 241) 0.2px;
+
+  &__button {
+    display: flex;
+  }
+
+  &__joke {
+    color: #78909c;
+    font-size: 0.8rem;
+    width: 70%;
+  }
+}

@@ -5,8 +5,8 @@ import "../JokeList/JokeList.scss";
 export default class JokeList extends Component {
   render() {
     return (
-      <div className='JokeList'>
-        <div className='jokebox-flex__right'>
+      <div className='jokeList'>
+        <div className='jokeList__right'>
           {this.props.jokes.map((j) => (
             <JokeItem key={j.id} joke={j.joke} />
           ))}

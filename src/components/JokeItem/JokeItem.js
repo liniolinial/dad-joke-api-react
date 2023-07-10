@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Button from "../Button/Button";
 import "../JokeList/JokeList.scss";
+import "../JokeItem/JokeItem.scss";
 
 // in diesem Coponent: emoji und num btn?
 export default class JokeItem extends Component {
@@ -28,13 +29,17 @@ export default class JokeItem extends Component {
   render() {
     return (
       <div>
-        <div className='jokebox-flex__jokelist'>
-          <div className='test'>
-            <Button onClick={this.handleUp}>^</Button>
-            <Button>{this.state.upVotes}</Button>
-            <Button onClick={this.handleDown}>v</Button>
+        <div className='jokeitem'>
+          <div className='jokeitem__button'>
+            <Button className='button__up' onClick={this.handleUp}>
+              ^
+            </Button>
+            <Button className='button__vote'>{this.state.upVotes}</Button>
+            <Button className='button__down' onClick={this.handleDown}>
+              v
+            </Button>
           </div>
-          <p>{this.props.joke}</p>
+          <p className='jokeitem__joke'>{this.props.joke}</p>
           <button>^</button>
         </div>
       </div>

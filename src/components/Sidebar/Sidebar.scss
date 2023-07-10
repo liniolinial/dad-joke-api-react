@@ -1,13 +1,32 @@
-.jokebox-flex-left {
+.sidebar {
   display: flex;
-  width: 30%;
   flex-direction: column;
   color: white;
+  width: 30%;
+  height: 80%;
   background-color: #9575cd;
   justify-content: center;
   align-items: center;
-  height: 80%;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1),
     inset 0 0 25px #7e57c2;
   z-index: 2;
+
+  &__title {
+    font-size: 4rem;
+    margin: 2rem;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 0.6rem;
+
+    span {
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+  }
+
+  img {
+    width: 50%;
+    border-radius: 50%;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+  }
 }

@@ -17,10 +17,11 @@ export default class App extends Component {
 
   componentDidMount() {
     fetchNewJokes(
+      1,
       (newJokes) => {
         this.setState({ jokes: newJokes });
       },
-      this.handleUpdateJokes,
+      // this.handleUpdateJokes,
       this.handleUpdateLoaded,
     );
   }
@@ -44,6 +45,7 @@ export default class App extends Component {
   // }
 
   handleUpdateJokes(newJokes) {
+    console.log(newJokes);
     const newJokesArray = [...this.state.jokes];
     newJokes.forEach((newJoke) => {
       if (!newJokesArray.find((joke) => joke.id === newJoke.id))
@@ -59,13 +61,18 @@ export default class App extends Component {
   render() {
     return (
       <div className='App'>
-        <Sidebar
-          onUpdateJokes={this.handleUpdateJokes}
-          onUpdateLoaded={this.handleUpdateLoaded}
-          isLoaded={this.state.isLoaded}
-        />
-        {/* <h1>Jokes count {this.state.jokes.length}</h1> */}
-        <JokeList jokes={this.state.jokes} />
+        {this.state.isLoaded ? (
+          <div className='Jokepage'>
+            <Sidebar
+              onUpdateJokes={this.handleUpdateJokes}
+              onUpdateLoaded={this.handleUpdateLoaded}
+              isLoaded={this.state.isLoaded}
+            />
+            <JokeList jokes={this.state.jokes} />
+          </div>
+        ) : (
+          <div className='loading' />
+        )}
       </div>
     );
   }

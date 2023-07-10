@@ -13,10 +13,10 @@ export default class Sidebar extends Component {
 
   handleClick() {
     console.log("click");
+    this.setState((st) => ({
+      page: st.page + 1,
+    }));
     fetchNewJokes(
-      this.setState((st) => ({
-        page: st.page + 1,
-      })),
       this.state.page,
       this.props.onUpdateJokes,
       this.props.onUpdateLoaded,
@@ -25,17 +25,18 @@ export default class Sidebar extends Component {
 
   render() {
     return (
-      <aside className='jokebox-flex-left'>
-        <h1>
-          <span>Dad</span>Jokes
+      <aside className='sidebar'>
+        <h1 className='sidebar__title'>
+          <span>Dad</span>JOKES
         </h1>
         <img
-          className='jokebox-flex-left__laughing-emoji'
           src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg'
           alt='emoji'
           {...!this.props.isLoaded}></img>
-
-        <Button onClick={this.handleClick} disabled={!this.props.isLoaded}>
+        <Button
+          className='button__getmore'
+          onClick={this.handleClick}
+          disabled={!this.props.isLoaded}>
           New Jokes
         </Button>
       </aside>

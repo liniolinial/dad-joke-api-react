@@ -2,9 +2,8 @@ import axios from "axios";
 // hooks(funcs)
 
 export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
-  const data = [];
   onUpdateLoaded(false);
-
+  const data = [];
   let request = axios.get(
     `https://icanhazdadjoke.com/search?page=${page}&limit=10`,
     {
@@ -17,8 +16,8 @@ export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
     jokes.forEach((joke) => {
       data.push(joke);
     });
-
     onUpdateJokes(data);
+    onUpdateLoaded(true);
   });
 
   // fetches.push(request);
@@ -27,12 +26,15 @@ export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
   //   // onUpdateLoaded(true);
   //   onUpdateJokes(data);
   // });
-
-  onUpdateLoaded(true);
+  // .then(() => {
+  //   onUpdateLoaded(true);
+  // });
+  // onUpdateLoaded(true);
 }
 
 //mit setTimeout
 //  for (let initialPage = 1; initialPage < 75; initialPage++) {
+// HIER PROBLEMATISCH!!!: EINMAL GEHT BIS ZUM 75-> ERROR 429(zu viel ANFRAGE)
 // setTimeout(() => {
 // let request = axios.get(
 //   `https://icanhazdadjoke.com/?page=${initialPage}&limit=10`,
