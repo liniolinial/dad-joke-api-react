@@ -3,24 +3,37 @@ import axios from "axios";
 
 export default function fetchNewJokes(
   initialPage,
+  onUpdatePage,
   onUpdateJokes,
   onUpdateLoaded,
 ) {
-  // loading btn: false->true->after loading->false
   onUpdateLoaded(false);
+  onUpdatePage(true);
 
-  // first loading then call api
   const fetches = [];
   const data = [];
 
-  //load data
   let request = axios.get(
     `https://icanhazdadjoke.com/?page=${initialPage}&limit=10`,
-    {
-      headers: { Accept: "application/json" },
-    },
+    { headers: { Accept: "application/json" } },
   );
 
+  // fetches.push(request);
+
+  // fetches.push(
+  //   request.then((response) => {
+  //     const jokes = response.results.joke;
+  //     const id = response.data.id;
+
+  //     const isDuplicate = data.some((j) => j.id === id);
+  //     if (!isDuplicate) {
+  //       data.push({
+  //         id,
+  //         joke: jokes,
+  //       });
+  //     }
+  //   }),
+  // );
   request.then((response) => {
     const { id, joke } = response.data;
 
@@ -38,5 +51,6 @@ export default function fetchNewJokes(
   Promise.all(fetches).then(() => {
     onUpdateLoaded(true);
     onUpdateJokes(data);
+    onUpdatePage(data);
   });
 }
