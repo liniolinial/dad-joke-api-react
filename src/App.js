@@ -8,41 +8,41 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialPage: 1,
+      page: 1,
       jokes: [],
       isLoaded: true,
     };
     this.handleUpdateJokes = this.handleUpdateJokes.bind(this);
     this.handleUpdateLoaded = this.handleUpdateLoaded.bind(this);
-    this.handleUpdatePage = this.handleUpdatePage.bind(this);
+    // this.handleUpdatePage = this.handleUpdatePage.bind(this);
   }
 
   componentDidMount() {
     fetchNewJokes(
-      this.state.initialPage,
-      this.handleUpdatePage,
+      // this.state.initialPage,
+      // this.handleUpdatePage,
       this.handleUpdateJokes,
       this.handleUpdateLoaded,
     );
   }
 
-  handleUpdatePage() {
-    if (this.state.initialPage < 74) {
-      this.setState(
-        (st) => ({
-          initialPage: st.initialPage + 1,
-        }),
-        () => {
-          fetchNewJokes(
-            this.handleUpdatePage,
-            this.state.initialPage,
-            this.handleUpdateJokes,
-            this.handleUpdateLoaded,
-          );
-        },
-      );
-    }
-  }
+  // handleUpdatePage() {
+  //   if (this.state.initialPage < 74) {
+  //     this.setState(
+  //       (st) => ({
+  //         initialPage: st.initialPage + 1,
+  //       }),
+  //       () => {
+  //         fetchNewJokes(
+  //           this.handleUpdatePage,
+  //           this.state.initialPage,
+  //           this.handleUpdateJokes,
+  //           this.handleUpdateLoaded,
+  //         );
+  //       },
+  //     );
+  //   }
+  // }
 
   handleUpdateJokes(newJokes) {
     const newJokesArray = [...this.state.jokes];
@@ -61,11 +61,11 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Sidebar
-          onUpdatePage={this.handleUpdatePage}
+          // onUpdatePage={this.handleUpdatePage}
           onUpdateJokes={this.handleUpdateJokes}
           onUpdateLoaded={this.handleUpdateLoaded}
           isLoaded={this.state.isLoaded}
-          initialPage={this.state.initialPage}
+          // initialPage={this.state.initialPage}
         />
         <h1>Jokes count {this.state.jokes.length}</h1>
         <JokeList jokes={this.state.jokes} />
