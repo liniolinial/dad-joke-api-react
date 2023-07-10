@@ -2,39 +2,28 @@ import axios from "axios";
 // hooks(funcs)
 
 export default function fetchNewJokes(
-  initialPage,
+  page,
   // onUpdatePage,
   onUpdateJokes,
   onUpdateLoaded,
 ) {
-  onUpdateLoaded(false);
-
   const fetches = [];
   const data = [];
 
-  let request = axios.get(
-    `https://icanhazdadjoke.com/?page=${initialPage}&limit=10`,
-    { headers: { Accept: "application/json" } },
-  );
+  let request = axios.get(`https://icanhazdadjoke.com/?page=1&limit=10`, {
+    headers: { Accept: "application/json" },
+  });
 
   request.then((response) => {
-    const { id, joke } = response.data;
-
-    const isDuplicate = data.some((j) => j.id === id);
-    if (!isDuplicate) {
-      data.push({
-        id,
-        joke,
-      });
-    }
+    console.log(response.data.results);
   });
 
   fetches.push(request);
 
-  Promise.all(fetches).then(() => {
-    onUpdateLoaded(true);
-    onUpdateJokes(data);
-  });
+  // Promise.all(fetches).then(() => {
+  //   onUpdateLoaded(true);
+  //   onUpdateJokes(data);
+  // });
 }
 
 //mit setTimeout

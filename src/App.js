@@ -8,7 +8,6 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialPage: 1,
       jokes: [],
       isLoaded: true,
     };
@@ -61,11 +60,9 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Sidebar
-          // onUpdatePage={this.handleUpdatePage}
           onUpdateJokes={this.handleUpdateJokes}
           onUpdateLoaded={this.handleUpdateLoaded}
           isLoaded={this.state.isLoaded}
-          // initialPage={this.state.initialPage}
         />
         <h1>Jokes count {this.state.jokes.length}</h1>
         <JokeList jokes={this.state.jokes} />

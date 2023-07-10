@@ -5,15 +5,14 @@ import fetchNewJokes from "../../services/fetchNewJokes";
 export default class Sidebar extends Component {
   constructor(props) {
     super(props);
-    this.state = { initialDataLoaded: false };
+    this.state = { initialDataLoaded: false, page: 1 };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     console.log("click");
     fetchNewJokes(
-      this.props.initialPage,
-      this.props.onUpdatePage,
+      this.state.page,
       this.props.onUpdateJokes,
       this.props.onUpdateLoaded,
     );
