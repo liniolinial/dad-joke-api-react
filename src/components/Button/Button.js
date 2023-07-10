@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import "../Button/Button.scss";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faArrowUp, faArrowDown);
 
 export default class Button extends Component {
   constructor(props) {
@@ -16,12 +21,13 @@ export default class Button extends Component {
     const { className, children, disabled } = this.props;
     if (className === "button__up") {
       return (
-        <button
+        <FontAwesomeIcon
           className='button__up'
+          icon={faArrowUp}
           onClick={this.handleClick}
           disabled={disabled}>
           {children}
-        </button>
+        </FontAwesomeIcon>
       );
     }
 
@@ -38,12 +44,13 @@ export default class Button extends Component {
 
     if (className === "button__down") {
       return (
-        <button
+        <FontAwesomeIcon
           className='button__down'
+          icon={faArrowDown}
           onClick={this.handleClick}
           disabled={disabled}>
           {children}
-        </button>
+        </FontAwesomeIcon>
       );
     }
 
