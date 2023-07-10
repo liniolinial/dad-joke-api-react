@@ -11,13 +11,10 @@ export default class Sidebar extends Component {
 
   handleClick() {
     console.log("click ");
-    const currentPage = this.state.page + 1;
-    this.setState({
-      page: currentPage,
-    });
-    // this.setState((st) => ({
-    //   page: st.page + 1,
-    // }));
+    this.setState((st) => ({
+      page: st.page + 1,
+    }));
+
     fetchNewJokes(
       this.state.page,
       this.props.onUpdateJokes,

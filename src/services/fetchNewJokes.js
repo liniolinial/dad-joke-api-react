@@ -1,12 +1,10 @@
 import axios from "axios";
 // hooks(funcs)
 
-const LIMIT = 10;
-
 export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
   onUpdateLoaded(false);
 
-  const fetches = [];
+  // const fetches = [];
   const data = [];
 
   // for (let i = 0; i < 10; i++) {
@@ -20,9 +18,11 @@ export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
   request
     .then((response) => {
       console.log(response);
-      response.data.results.forEach((item) => {
-        data.push(item);
+      const jokes = response.data.results;
+      jokes.forEach((joke) => {
+        data.push(joke);
       });
+
       onUpdateJokes(data);
 
       // const { id, joke } = response.data;
