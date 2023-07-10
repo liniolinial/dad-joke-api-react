@@ -27,6 +27,7 @@ export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
   //   // onUpdateLoaded(true);
   //   onUpdateJokes(data);
   // });
+
   onUpdateLoaded(true);
 }
 
