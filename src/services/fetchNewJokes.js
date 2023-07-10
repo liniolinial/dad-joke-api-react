@@ -2,7 +2,7 @@ import axios from "axios";
 // hooks(funcs)
 
 export default function fetchNewJokes(
-  page,
+  initialPage,
   // onUpdatePage,
   onUpdateJokes,
   onUpdateLoaded,
@@ -12,9 +12,10 @@ export default function fetchNewJokes(
   const fetches = [];
   const data = [];
 
-  let request = axios.get(`https://icanhazdadjoke.com/?page=${page}&limit=10`, {
-    headers: { Accept: "application/json" },
-  });
+  let request = axios.get(
+    `https://icanhazdadjoke.com/?page=${initialPage}&limit=10`,
+    { headers: { Accept: "application/json" } },
+  );
 
   request.then((response) => {
     const { id, joke } = response.data;
@@ -34,8 +35,6 @@ export default function fetchNewJokes(
     onUpdateLoaded(true);
     onUpdateJokes(data);
   });
-
-  page++;
 }
 
 //mit setTimeout
