@@ -17,9 +17,13 @@ export default class App extends Component {
   }
   //überschreiben initial value (damit ich kein verdoppelte componentDM in konsole kriege.)
   componentDidMount() {
-    fetchNewJokes((newJokes) => {
-      this.setState({ jokes: newJokes });
-    }, this.handleUpdateLoaded);
+    fetchNewJokes(
+      1,
+      (newJokes) => {
+        this.setState({ jokes: newJokes });
+      },
+      this.handleUpdateLoaded,
+    );
   }
 
   handleUpdateJokes(newJokes) {
