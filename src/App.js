@@ -13,13 +13,13 @@ export default class App extends Component {
     };
     this.handleUpdateJokes = this.handleUpdateJokes.bind(this);
     this.handleUpdateLoaded = this.handleUpdateLoaded.bind(this);
-    // this.handleUpdatePage = this.handleUpdatePage.bind(this);
   }
 
   componentDidMount() {
     fetchNewJokes(
-      // this.state.initialPage,
-      // this.handleUpdatePage,
+      (newJokes) => {
+        this.setState({ jokes: newJokes });
+      },
       this.handleUpdateJokes,
       this.handleUpdateLoaded,
     );

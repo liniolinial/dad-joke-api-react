@@ -1,29 +1,33 @@
 import axios from "axios";
 // hooks(funcs)
 
-export default function fetchNewJokes(
-  page,
-  // onUpdatePage,
-  onUpdateJokes,
-  onUpdateLoaded,
-) {
-  const fetches = [];
+export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
   const data = [];
+  onUpdateLoaded(false);
 
-  let request = axios.get(`https://icanhazdadjoke.com/?page=1&limit=10`, {
-    headers: { Accept: "application/json" },
-  });
+  let request = axios.get(
+    `https://icanhazdadjoke.com/search?page=${page}&limit=10`,
+    {
+      headers: { Accept: "application/json" },
+    },
+  );
 
   request.then((response) => {
-    console.log(response.data.results);
+    const jokes = response.data.results;
+    jokes.forEach((joke) => {
+      data.push(joke);
+    });
+
+    onUpdateJokes(data);
   });
 
-  fetches.push(request);
+  // fetches.push(request);
 
   // Promise.all(fetches).then(() => {
-  //   onUpdateLoaded(true);
+  //   // onUpdateLoaded(true);
   //   onUpdateJokes(data);
   // });
+  onUpdateLoaded(true);
 }
 
 //mit setTimeout
