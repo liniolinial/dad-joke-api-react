@@ -64,7 +64,7 @@ export default class App extends Component {
           onUpdateLoaded={this.handleUpdateLoaded}
           isLoaded={this.state.isLoaded}
         />
-        <h1>Jokes count {this.state.jokes.length}</h1>
+        {/* <h1>Jokes count {this.state.jokes.length}</h1> */}
         <JokeList jokes={this.state.jokes} />
       </div>
     );

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Button from "../Button/Button";
+import "../Sidebar/Sidebar.scss";
+
 import fetchNewJokes from "../../services/fetchNewJokes";
 
 export default class Sidebar extends Component {
@@ -23,9 +25,16 @@ export default class Sidebar extends Component {
 
   render() {
     return (
-      <aside className='jokebox-flex__left'>
-        <h1>Dad Jokes</h1>
-        <p>emoji placeholder{!this.props.isLoaded}</p>
+      <aside className='jokebox-flex-left'>
+        <h1>
+          <span>Dad</span>Jokes
+        </h1>
+        <img
+          className='jokebox-flex-left__laughing-emoji'
+          src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg'
+          alt='emoji'
+          {...!this.props.isLoaded}></img>
+
         <Button onClick={this.handleClick} disabled={!this.props.isLoaded}>
           New Jokes
         </Button>
