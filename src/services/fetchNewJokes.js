@@ -1,9 +1,9 @@
 import axios from "axios";
-// hooks(funcs)
 
 export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
   onUpdateLoaded(false);
   const data = [];
+
   let request = axios.get(
     `https://icanhazdadjoke.com/search?page=${page}&limit=10`,
     {
@@ -26,10 +26,6 @@ export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
   //   // onUpdateLoaded(true);
   //   onUpdateJokes(data);
   // });
-  // .then(() => {
-  //   onUpdateLoaded(true);
-  // });
-  // onUpdateLoaded(true);
 }
 
 //mit setTimeout

@@ -9,15 +9,24 @@
       rgba(240, 98, 146, 1) 100%
     );
     color: white;
+    cursor: pointer;
+    transition: 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+    outline: none;
     margin: 25px;
     border-radius: 25px;
     font-weight: 700;
     font-size: 1.3rem;
+    transition: 0.8s cubic-bezier(0.2, 1, 0.2, 1);
     border-style: none;
     box-shadow: 0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    }
   }
 
-  &__vote {
+  &__votes {
     background-color: white;
     aspect-ratio: 1 / 1;
     width: 45px;
@@ -25,11 +34,11 @@
     border-radius: 50%;
     text-align: center;
     font-size: 1rem;
-    border: 3px solid red;
+    border: 3px solid;
     box-shadow: 0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1);
-    margin: 3px;
+    margin: 5px;
+    color: #78909c;
+    font-size: 1rem;
+    font-weight: 500;
   }
-  //   &__down {
-  //     color: "#bababa";
-  //   }
 }

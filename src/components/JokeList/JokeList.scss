@@ -6,6 +6,8 @@
     flex-direction: column;
     background: white;
     overflow: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
     padding: 0 20px;
     height: 95%;
     align-self: center;
