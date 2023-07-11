@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Button from "../Button/Button";
-import "../Sidebar/Sidebar.scss";
+import "../Sidebar/Sidebar.css";
 
 import fetchNewJokes from "../../services/fetchNewJokes";
 

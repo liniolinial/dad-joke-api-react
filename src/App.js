@@ -1,4 +1,4 @@
-import "./App.scss";
+import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 import JokeList from "./components/JokeList/JokeList";
 import fetchNewJokes from "./services/fetchNewJokes";
