@@ -20,29 +20,32 @@ export default class Button extends Component {
 
   getColor() {
     const { upVotes } = this.props;
+    let color;
     if (upVotes >= 12) {
-      return "#4CAF50";
-    } else if (upVotes >= 10 || upVotes < 12) {
-      return "#8BC34A";
-    } else if (upVotes >= 8 || upVotes < 10) {
-      return "#CDDC39";
-    } else if (upVotes >= 5 || upVotes < 8) {
-      return "#FFEB3B";
-    } else if (upVotes >= 3 || upVotes < 5) {
-      return "#FFC107";
-    } else if (upVotes >= 1 || upVotes < 3) {
-      return "#FF9800";
+      color = "#4CAF50";
+    } else if (upVotes >= 10 && upVotes < 12) {
+      color = "#8BC34A";
+    } else if (upVotes >= 8 && upVotes < 10) {
+      color = "#CDDC39";
+    } else if (upVotes >= 5 && upVotes < 8) {
+      color = "#FFEB3B";
+    } else if (upVotes >= 3 && upVotes < 5) {
+      color = "#FFC107";
+    } else if (upVotes >= 1 && upVotes < 3) {
+      color = "#FF9800";
     } else if (upVotes === 0) {
-      return "#f44336";
+      color = "#f44336";
     } else if (upVotes === -1) {
-      return "#ba271c";
+      color = "#ba271c";
     } else if (upVotes === -2) {
-      return "#942018";
+      color = "#942018";
     } else if (upVotes === -3) {
-      return "#2e0806";
+      color = "#2e0806";
     } else {
-      return "#080100";
+      color = "#080100";
     }
+    // console.log(color);
+    return color;
   }
 
   render() {
@@ -67,7 +70,6 @@ export default class Button extends Component {
       return (
         <button
           className='button__votes'
-          onClick={this.handleClick}
           style={{ borderColor: this.getColor() }}
           disabled={disabled}>
           {children}

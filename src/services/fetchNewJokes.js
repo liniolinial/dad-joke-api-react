@@ -13,7 +13,9 @@ export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
 
   request.then((response) => {
     const jokes = response.data.results;
+
     jokes.forEach((joke) => {
+      joke.upVotes = 0;
       data.push(joke);
     });
     onUpdateJokes(data);
@@ -21,7 +23,6 @@ export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
   });
 
   // fetches.push(request);
-
   // Promise.all(fetches).then(() => {
   //   // onUpdateLoaded(true);
   //   onUpdateJokes(data);

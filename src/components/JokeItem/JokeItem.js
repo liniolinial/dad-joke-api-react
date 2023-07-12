@@ -32,36 +32,32 @@ library.add(
   faFaceGrinSquintTears,
 );
 
-// in diesem Coponent: emoji und num btn?
 export default class JokeItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      upVotes: 0,
-    };
-    this.handleUp = this.handleUp.bind(this);
-    this.handleDown = this.handleDown.bind(this);
+    // this.state = {
+    // upVotes: 0,-> zur app.js
+    // };
+    this.handleUpVote = this.handleUpVote.bind(this);
+    this.handleDownVote = this.handleDownVote.bind(this);
     this.getEmoji = this.getEmoji.bind(this);
   }
 
-  handleUp(id) {
-    this.setState((st) => ({
-      upVotes: st.upVotes + 1,
-    }));
+  //event -handle (handle and on -> verknupfen, keine Übersprung.)
+  handleUpVote() {
+    this.props.onHandleUpVote(this.props.id);
   }
 
-  handleDown(id) {
-    this.setState((st) => ({
-      upVotes: st.upVotes > -4 ? st.upVotes - 1 : -4,
-    }));
+  handleDownVote() {
+    this.props.onHandleDownVote(this.props.id);
   }
 
   getEmoji() {
-    if (this.state.upVotes >= 12) {
+    if (this.props.upVotes >= 12) {
       return (
         <FontAwesomeIcon
           icon={faFaceGrinSquintTears}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           size='lg'
           style={{
             color: "orange",
@@ -73,11 +69,11 @@ export default class JokeItem extends Component {
           }}
         />
       );
-    } else if (this.state.upVotes >= 10 || this.props.UpVotes < 12) {
+    } else if (this.props.upVotes >= 10 && this.props.upVotes < 12) {
       return (
         <FontAwesomeIcon
           icon={faGrinTears}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           size='lg'
           style={{
             color: "orange",
@@ -89,11 +85,11 @@ export default class JokeItem extends Component {
           }}
         />
       );
-    } else if (this.state.upVotes >= 8 || this.props.UpVotes < 10) {
+    } else if (this.props.upVotes >= 8 && this.props.upVotes < 10) {
       return (
         <FontAwesomeIcon
           icon={faFaceGrinSquint}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           size='lg'
           style={{
             color: "orange",
@@ -105,11 +101,11 @@ export default class JokeItem extends Component {
           }}
         />
       );
-    } else if (this.state.upVotes >= 5 || this.props.UpVotes < 8) {
+    } else if (this.props.upVotes >= 5 && this.props.upVotes < 8) {
       return (
         <FontAwesomeIcon
           icon={faFaceGrinBeam}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           size='lg'
           style={{
             color: "orange",
@@ -121,11 +117,11 @@ export default class JokeItem extends Component {
           }}
         />
       );
-    } else if (this.state.upVotes >= 3 || this.props.UpVotes < 5) {
+    } else if (this.props.upVotes >= 3 && this.props.upVotes < 5) {
       return (
         <FontAwesomeIcon
           icon={faSmileWink}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           size='lg'
           style={{
             color: "orange",
@@ -137,11 +133,11 @@ export default class JokeItem extends Component {
           }}
         />
       );
-    } else if (this.state.upVotes >= 1 || this.props.UpVotes < 3) {
+    } else if (this.props.upVotes >= 1 && this.props.upVotes < 3) {
       return (
         <FontAwesomeIcon
           icon={faFaceGrinWide}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           size='lg'
           style={{
             color: "orange",
@@ -153,11 +149,11 @@ export default class JokeItem extends Component {
           }}
         />
       );
-    } else if (this.state.upVotes === 0) {
+    } else if (this.props.upVotes === 0) {
       return (
         <FontAwesomeIcon
           icon={faSmile}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           size='lg'
           style={{
             color: "orange",
@@ -169,11 +165,11 @@ export default class JokeItem extends Component {
           }}
         />
       );
-    } else if (this.state.upVotes === -1) {
+    } else if (this.props.upVotes === -1) {
       return (
         <FontAwesomeIcon
           icon={faFrown}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           size='lg'
           style={{
             color: "#69B049",
@@ -185,11 +181,11 @@ export default class JokeItem extends Component {
           }}
         />
       );
-    } else if (this.state.upVotes === -2) {
+    } else if (this.props.upVotes === -2) {
       return (
         <FontAwesomeIcon
           icon={faFlushed}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           size='lg'
           style={{
             color: "#A6B6C4",
@@ -201,11 +197,11 @@ export default class JokeItem extends Component {
           }}
         />
       );
-    } else if (this.state.upVotes === -3) {
+    } else if (this.props.upVotes === -3) {
       return (
         <FontAwesomeIcon
           icon={faDizzy}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           size='lg'
           style={{
             color: "#5b5b5b",
@@ -221,7 +217,7 @@ export default class JokeItem extends Component {
       return (
         <FontAwesomeIcon
           icon={faAngry}
-          onClick={this.handleClick}
+          // onClick={this.handleClick}
           size='lg'
           style={{
             color: "red",
@@ -241,9 +237,11 @@ export default class JokeItem extends Component {
       <div>
         <div className='jokeitem'>
           <div className='jokeitem__button'>
-            <Button className='button__up' onClick={this.handleUp} />
-            <Button className='button__votes'>{this.state.upVotes}</Button>
-            <Button className='button__down' onClick={this.handleDown} />
+            <Button className='button__up' onClick={this.handleUpVote} />
+            <Button className='button__votes' upVotes={this.props.upVotes}>
+              {this.props.upVotes}
+            </Button>
+            <Button className='button__down' onClick={this.handleDownVote} />
           </div>
           <p className='jokeitem__joke'>{this.props.joke}</p>
           {this.getEmoji()}
