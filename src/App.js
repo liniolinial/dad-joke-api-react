@@ -8,7 +8,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // upVotes: 0,
+      // upVotes: 0: hier brauche ich es nicht weil  v sehe unten
       // jokes: {id: string, joke: string, upVotes: number }[] // nur für Verständnis: aber mehr mal so: [{id: string, joke: string, upVotes: number }]
       jokes: [],
       isLoaded: true,
@@ -43,19 +43,11 @@ export default class App extends Component {
     this.updateVotes(id);
   }
 
-  // let a = 5;
-  // a += 5;
-  // kürzt ab a = a + 5;
-  // a = 10
-
-  // true ? (false ? (false ? true : false) : false) : false
-  // false ? false ? true : false ? true : false ? "Hallo" : true : false
-
   updateVotes(id, addition = true) {
     const newJokes = this.state.jokes.map((joke) => {
       if (joke.id === id) {
         addition
-          ? //diese weitere ? kondition
+          ? //diese weitere ? kondition Übung in new.js
             (joke.upVotes += 1)
           : (joke.upVotes -= joke.upVotes > -4);
       }
@@ -97,7 +89,6 @@ export default class App extends Component {
               onUpdateLoaded={this.handleUpdateLoaded}
               isLoaded={this.state.isLoaded}
             />
-            {/* <JokeList jokes={this.state.jokes} */}
             <JokeList
               jokes={this.state.jokes}
               onHandleUpVote={this.handleUpVote}
