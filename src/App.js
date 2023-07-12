@@ -3,6 +3,11 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import JokeList from "./components/JokeList/JokeList";
 import fetchNewJokes from "./services/fetchNewJokes";
 import React, { Component } from "react";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLaughSquint } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faLaughSquint);
 
 export default class App extends Component {
   constructor(props) {
@@ -96,9 +101,26 @@ export default class App extends Component {
             />
           </div>
         ) : (
-          <div className='loading' />
+          <FontAwesomeIcon
+            icon={faLaughSquint}
+            size='lg'
+            spin
+            className='loading-smiley'
+          />
         )}
       </div>
+
+      // //test
+      // <div className='App'>
+      //   <div className='background-loading-smiley'>
+      //     <FontAwesomeIcon
+      //       icon={faLaughSquint}
+      //       size='lg'
+      //       spin
+      //       className='loading-smiley'
+      //     />
+      //   </div>
+      // </div>
     );
   }
 }

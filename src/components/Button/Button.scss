@@ -41,4 +41,53 @@
     font-size: 1rem;
     font-weight: 500;
   }
+
+  &__up,
+  &__down {
+    color: #bababa;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  &__up {
+    &:hover {
+      animation-name: move-up;
+      animation-duration: 0.7s;
+      animation-timing-function: ease-out;
+      color: #8bc34a;
+    }
+  }
+
+  &__down {
+    &:hover {
+      animation-name: move-down;
+      animation-duration: 0.7s;
+      animation-timing-function: ease-out;
+      color: #f44336;
+    }
+  }
+}
+
+@keyframes move-up {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  25%,
+  75% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes move-down {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  25%,
+  75% {
+    transform: translateY(3px);
+  }
 }

@@ -57,177 +57,65 @@ export default class JokeItem extends Component {
       return (
         <FontAwesomeIcon
           icon={faFaceGrinSquintTears}
-          // onClick={this.handleClick}
           size='lg'
-          style={{
-            color: "orange",
-            boxShadow:
-              "0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1)",
-            fontSize: "55px",
-            borderRadius: "50%",
-            borderStyle: "none",
-          }}
+          className='smiley orange'
         />
       );
     } else if (this.props.upVotes >= 10 && this.props.upVotes < 12) {
       return (
         <FontAwesomeIcon
           icon={faGrinTears}
-          // onClick={this.handleClick}
           size='lg'
-          style={{
-            color: "orange",
-            boxShadow:
-              "0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1)",
-            fontSize: "55px",
-            borderRadius: "50%",
-            borderStyle: "none",
-          }}
+          className='smiley orange'
         />
       );
     } else if (this.props.upVotes >= 8 && this.props.upVotes < 10) {
       return (
         <FontAwesomeIcon
           icon={faFaceGrinSquint}
-          // onClick={this.handleClick}
           size='lg'
-          style={{
-            color: "orange",
-            boxShadow:
-              "0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1)",
-            fontSize: "55px",
-            borderRadius: "50%",
-            borderStyle: "none",
-          }}
+          className='smiley orange'
         />
       );
     } else if (this.props.upVotes >= 5 && this.props.upVotes < 8) {
       return (
         <FontAwesomeIcon
           icon={faFaceGrinBeam}
-          // onClick={this.handleClick}
           size='lg'
-          style={{
-            color: "orange",
-            boxShadow:
-              "0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1)",
-            fontSize: "55px",
-            borderRadius: "50%",
-            borderStyle: "none",
-          }}
+          className='smiley orange'
         />
       );
     } else if (this.props.upVotes >= 3 && this.props.upVotes < 5) {
       return (
         <FontAwesomeIcon
           icon={faSmileWink}
-          // onClick={this.handleClick}
           size='lg'
-          style={{
-            color: "orange",
-            boxShadow:
-              "0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1)",
-            fontSize: "55px",
-            borderRadius: "50%",
-            borderStyle: "none",
-          }}
+          className='smiley orange'
         />
       );
     } else if (this.props.upVotes >= 1 && this.props.upVotes < 3) {
       return (
-        <FontAwesomeIcon
-          icon={faFaceGrinWide}
-          // onClick={this.handleClick}
-          size='lg'
-          style={{
-            color: "orange",
-            boxShadow:
-              "0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1)",
-            fontSize: "55px",
-            borderRadius: "50%",
-            borderStyle: "none",
-          }}
-        />
+        <FontAwesomeIcon icon={faFaceGrinWide} className='smiley orange' />
       );
     } else if (this.props.upVotes === 0) {
       return (
-        <FontAwesomeIcon
-          icon={faSmile}
-          // onClick={this.handleClick}
-          size='lg'
-          style={{
-            color: "orange",
-            boxShadow:
-              "0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1)",
-            fontSize: "55px",
-            borderRadius: "50%",
-            borderStyle: "none",
-          }}
-        />
+        <FontAwesomeIcon icon={faSmile} size='lg' className='smiley orange' />
       );
     } else if (this.props.upVotes === -1) {
       return (
-        <FontAwesomeIcon
-          icon={faFrown}
-          // onClick={this.handleClick}
-          size='lg'
-          style={{
-            color: "#69B049",
-            boxShadow:
-              "0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1)",
-            fontSize: "55px",
-            borderRadius: "50%",
-            borderStyle: "none",
-          }}
-        />
+        <FontAwesomeIcon icon={faFrown} size='lg' className='smiley -one' />
       );
     } else if (this.props.upVotes === -2) {
       return (
-        <FontAwesomeIcon
-          icon={faFlushed}
-          // onClick={this.handleClick}
-          size='lg'
-          style={{
-            color: "#A6B6C4",
-            boxShadow:
-              "0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1)",
-            fontSize: "55px",
-            borderRadius: "50%",
-            borderStyle: "none",
-          }}
-        />
+        <FontAwesomeIcon icon={faFlushed} size='lg' className='smiley -two' />
       );
     } else if (this.props.upVotes === -3) {
       return (
-        <FontAwesomeIcon
-          icon={faDizzy}
-          // onClick={this.handleClick}
-          size='lg'
-          style={{
-            color: "#5b5b5b",
-            boxShadow:
-              "0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1)",
-            fontSize: "55px",
-            borderRadius: "50%",
-            borderStyle: "none",
-          }}
-        />
+        <FontAwesomeIcon icon={faDizzy} size='lg' className='smiley -three' />
       );
     } else {
       return (
-        <FontAwesomeIcon
-          icon={faAngry}
-          // onClick={this.handleClick}
-          size='lg'
-          style={{
-            color: "red",
-            boxShadow:
-              "0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1)",
-            fontSize: "55px",
-            borderRadius: "50%",
-            borderStyle: "none",
-          }}
-        />
+        <FontAwesomeIcon icon={faAngry} size='lg' className='smiley -four' />
       );
     }
   }

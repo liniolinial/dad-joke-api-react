@@ -7,15 +7,14 @@ export default class JokeList extends Component {
     super(props);
     this.handleDownVote = this.handleDownVote.bind(this);
     this.handleUpVote = this.handleUpVote.bind(this);
-    // this.handleDownVote = this.handleDownVote.bind(this);
-    // this.handleUpVote = this.handleUpVote.bind(this);
   }
 
-  //hint
+  // verknupft handleUpVote func mit onHadleUp props id von JokeList id(=genauer gesagt id von JokeItem id von unten map)
+  //
   handleUpVote(id) {
     this.props.onHandleUpVote(id);
   }
-
+  // hier onHandle-Vote sind keine Funktion von App.js sondern Props ind jsx von app.js von JokeList
   handleDownVote(id) {
     this.props.onHandleDownVote(id);
   }
@@ -29,12 +28,11 @@ export default class JokeList extends Component {
               key={j.id}
               joke={j.joke}
               id={j.id}
-              // upVotes={this.upVotes}
+              // wichtig hier j.upVotes!!! wegen map
+              // on- bleibt immer in Props
               upVotes={j.upVotes}
               onHandleUpVote={this.handleUpVote}
               onHandleDownVote={this.handleDownVote}
-              // onHandleUpVote={this.onHandleUpVote}
-              // onHandleDownVote={this.onHandleDownVote}
             />
           ))}
         </div>

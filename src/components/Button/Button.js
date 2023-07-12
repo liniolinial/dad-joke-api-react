@@ -3,6 +3,7 @@ import "../Button/Button.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { hover } from "@testing-library/user-event/dist/hover";
 
 library.add(faArrowUp, faArrowDown);
 
@@ -55,10 +56,6 @@ export default class Button extends Component {
         <FontAwesomeIcon
           className='button__up'
           icon={faArrowUp}
-          style={{
-            color: "#bababa",
-            cursor: "pointer",
-          }}
           onClick={this.handleClick}
           disabled={disabled}>
           {children}
@@ -82,10 +79,6 @@ export default class Button extends Component {
         <FontAwesomeIcon
           className='button__down'
           icon={faArrowDown}
-          style={{
-            color: "#bababa",
-            cursor: "pointer",
-          }}
           onClick={this.handleClick}
           disabled={disabled}>
           {children}
