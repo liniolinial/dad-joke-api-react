@@ -9,6 +9,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       // upVotes: 0,
+      // jokes: {id: string, joke: string, upVotes: number }[] // nur für Verständnis: aber mehr mal so: [{id: string, joke: string, upVotes: number }]
       jokes: [],
       isLoaded: true,
     };
@@ -16,31 +17,60 @@ export default class App extends Component {
     this.handleUpdateLoaded = this.handleUpdateLoaded.bind(this);
     this.handleUpVote = this.handleUpVote.bind(this);
     this.handleDownVote = this.handleDownVote.bind(this);
-    this.handleScoreCompare = this.handleScoreCompare.bind(this);
+    this.updateVotes = this.updateVotes.bind(this);
+    this.sortJokes = this.sortJokes.bind(this);
+  }
+
+  sortJokes(jokes) {
+    jokes.sort((a, b) => {
+      return b.upVotes - a.upVotes;
+    });
+    return jokes;
   }
 
   componentDidMount() {
     fetchNewJokes(
       1,
       (newJokes) => {
-        this.setState({ jokes: newJokes });
+        const sortedJokes = this.sortJokes(newJokes);
+        this.setState({ jokes: sortedJokes });
       },
-      // 2. Parm ist quasi das: this.handleUpdateJokes,
       this.handleUpdateLoaded,
     );
   }
 
   handleUpVote(id) {
-    this.setState((st) => ({
-      upVotes: st.upVotes + 1,
-    }));
+    this.updateVotes(id);
+  }
+
+  // let a = 5;
+  // a += 5;
+  // kürzt ab a = a + 5;
+  // a = 10
+
+  // true ? (false ? (false ? true : false) : false) : false
+  // false ? false ? true : false ? true : false ? "Hallo" : true : false
+
+  updateVotes(id, addition = true) {
+    const newJokes = this.state.jokes.map((joke) => {
+      if (joke.id === id) {
+        addition
+          ? //diese weitere ? kondition
+            (joke.upVotes += 1)
+          : (joke.upVotes -= joke.upVotes > -4);
+      }
+      return joke;
+    });
+
+    const sortedJokes = this.sortJokes(newJokes);
+    this.setState({ jokes: sortedJokes });
   }
 
   handleDownVote(id) {
-    this.setState((st) => ({
-      upVotes: st.upVotes > -4 ? st.upVotes - 1 : -4,
-    }));
+    this.updateVotes(id, false);
   }
+
+  // handleUp &-Down so ähnliche Func kann man in einer Hauptfunktion schreiben und das verteilen, wie updateVotes
 
   handleUpdateJokes(newJokes) {
     const newJokesArray = [...this.state.jokes];
@@ -48,21 +78,13 @@ export default class App extends Component {
       if (!newJokesArray.find((joke) => joke.id === newJoke.id))
         newJokesArray.push(newJoke);
     });
-    this.setState({ jokes: newJokesArray });
-  }
-  handleUpdateLoaded(newIsLoaded) {
-    this.setState({ isLoaded: newIsLoaded });
+
+    const sortedJokes = this.sortJokes(newJokesArray);
+    this.setState({ jokes: sortedJokes });
   }
 
-  handleScoreCompare() {
-    const scoreCompare = (a, b) => {
-      return b - a;
-    };
-    const sortedJokes = [...this.state].jokes.sort(scoreCompare);
-    return sortedJokes;
-    // this.setState({
-    //   jokes: sortedJokes,
-    // });
+  handleUpdateLoaded(newIsLoaded) {
+    this.setState({ isLoaded: newIsLoaded });
   }
 
   render() {
@@ -78,7 +100,6 @@ export default class App extends Component {
             {/* <JokeList jokes={this.state.jokes} */}
             <JokeList
               jokes={this.state.jokes}
-              upVotes={this.handleScoreCompare()}
               onHandleUpVote={this.handleUpVote}
               onHandleDownVote={this.handleDownVote}
             />

@@ -30,7 +30,7 @@ export default class JokeList extends Component {
               joke={j.joke}
               id={j.id}
               // upVotes={this.upVotes}
-              upVotes={this.props.upVotes}
+              upVotes={j.upVotes}
               onHandleUpVote={this.handleUpVote}
               onHandleDownVote={this.handleDownVote}
               // onHandleUpVote={this.onHandleUpVote}
