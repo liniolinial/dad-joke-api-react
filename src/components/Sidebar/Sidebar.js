@@ -7,12 +7,12 @@ import fetchNewJokes from "../../services/fetchNewJokes";
 export default class Sidebar extends Component {
   constructor(props) {
     super(props);
-    this.state = { initialDataLoaded: false, page: 2 };
+    this.state = { initialDataLoaded: false, page: 1 };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    console.log("click");
+    // console.log(length);
     this.setState((st) => ({
       page: st.page + 1,
     }));
@@ -27,7 +27,7 @@ export default class Sidebar extends Component {
     return (
       <aside className='sidebar'>
         <h1 className='sidebar__title'>
-          <span>Dad</span>JOKES
+          <span>Dad </span>JOKES
         </h1>
         <img
           src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg'

@@ -1,93 +1,126 @@
-.button {
-  &__getmore {
-    padding: 20px;
-    background: linear-gradient(
-      135deg,
-      rgba(179, 229, 252, 1) 0%,
-      rgba(179, 229, 252, 1) 50%,
-      rgba(240, 98, 146, 1) 50%,
-      rgba(240, 98, 146, 1) 100%
-    );
-    color: white;
-    cursor: pointer;
-    transition: 0.8s cubic-bezier(0.2, 1, 0.2, 1);
-    outline: none;
-    margin: 25px;
-    border-radius: 25px;
-    font-weight: 700;
-    font-size: 1.3rem;
-    transition: 0.8s cubic-bezier(0.2, 1, 0.2, 1);
-    border-style: none;
-    box-shadow: 0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1);
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-    }
-  }
-
-  &__votes {
-    background-color: white;
-    aspect-ratio: 1 / 1;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 1rem;
-    border: 3px solid;
-    box-shadow: 0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1);
-    margin: 5px;
-    color: #78909c;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
-  &__up,
-  &__down {
-    color: #bababa;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  &__up {
-    &:hover {
-      animation-name: move-up;
-      animation-duration: 0.7s;
-      animation-timing-function: ease-out;
-      color: #8bc34a;
-    }
-  }
-
-  &__down {
-    &:hover {
-      animation-name: move-down;
-      animation-duration: 0.7s;
-      animation-timing-function: ease-out;
-      color: #f44336;
-    }
-  }
+button {
+  border-style: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-@keyframes move-up {
-  0%,
-  50%,
-  100% {
-    transform: translateY(0);
-  }
-  25%,
-  75% {
-    transform: translateY(-3px);
-  }
-}
+// .button {
+//   &__getmore {
+//     padding: 20px;
+//     background: linear-gradient(
+//       135deg,
+//       rgba(179, 229, 252, 1) 0%,
+//       rgba(179, 229, 252, 1) 50%,
+//       rgba(240, 98, 146, 1) 50%,
+//       rgba(240, 98, 146, 1) 100%
+//     );
+//     color: white;
+//     cursor: pointer;
+//     transition: 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+//     outline: none;
+//     margin: 25px;
+//     border-radius: 25px;
+//     font-weight: 700;
+//     font-size: 1.3rem;
+//     transition: 0.8s cubic-bezier(0.2, 1, 0.2, 1);
+//     border-style: none;
+//     box-shadow: 0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1);
 
-@keyframes move-down {
-  0%,
-  50%,
-  100% {
-    transform: translateY(0);
-  }
-  25%,
-  75% {
-    transform: translateY(3px);
-  }
-}
+//     &:hover {
+//       transform: translateY(-2px);
+//       box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+//     }
+//   }
+
+//   &__votes {
+//     background-color: white;
+//     aspect-ratio: 1 / 1;
+//     width: 45px;
+//     height: 45px;
+//     border-radius: 50%;
+//     text-align: center;
+//     font-size: 1rem;
+//     border: 3px solid;
+//     box-shadow: 0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1);
+//     margin: 7px;
+//     color: #78909c;
+//     font-size: 1rem;
+//     font-weight: 500;
+//   }
+
+//   &__up,
+//   &__down {
+//     color: #78909c;
+//     cursor: pointer;
+//     transition: all 0.3s;
+//   }
+
+//   &__up {
+//     &:hover {
+//       animation-name: move-up;
+//       animation-duration: 0.7s;
+//       animation-timing-function: ease-out;
+//       color: #8bc34a;
+//     }
+//   }
+
+//   &__down {
+//     &:hover {
+//       animation-name: move-down;
+//       animation-duration: 0.7s;
+//       animation-timing-function: ease-out;
+//       color: #f44336;
+//     }
+//   }
+//   &__smiley {
+//     box-shadow: 0 10px 38px rgba(0, 0, 0, 0.2), 0 10px 12px rgba(0, 0, 0, 0.1);
+//     font-size: 55px;
+//     border-radius: 50%;
+//     border-style: none;
+//     // unter andere Kondition andere ClassName
+//     animation-name: move-up;
+//     animation-duration: 3s;
+//     animation-timing-function: ease-in-out;
+//     animation-delay: 0s;
+//   }
+// }
+
+// .orange {
+//   color: orange;
+// }
+// .-one {
+//   color: #69b049;
+// }
+// .-two {
+//   color: #a6b6c4;
+// }
+// .-three {
+//   color: #5b5b5b;
+// }
+// .-four {
+//   color: red;
+// }
+
+// @keyframes move-up {
+//   0%,
+//   50%,
+//   100% {
+//     transform: translateY(0);
+//   }
+//   25%,
+//   75% {
+//     transform: translateY(-3px);
+//   }
+// }
+
+// @keyframes move-down {
+//   0%,
+//   50%,
+//   100% {
+//     transform: translateY(0);
+//   }
+//   25%,
+//   75% {
+//     transform: translateY(3px);
+//   }
+// }

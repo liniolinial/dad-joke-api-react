@@ -45,6 +45,7 @@ export default class App extends Component {
   }
 
   handleUpVote(id) {
+    console.log(id);
     this.updateVotes(id);
   }
 
@@ -52,7 +53,7 @@ export default class App extends Component {
     const newJokes = this.state.jokes.map((joke) => {
       if (joke.id === id) {
         addition
-          ? //diese weitere ? kondition Übung in new.js
+          ? //diese weitere ? kondition Übung in new.js: true/false value von 1 /0
             (joke.upVotes += 1)
           : (joke.upVotes -= joke.upVotes > -4);
       }
@@ -66,7 +67,6 @@ export default class App extends Component {
   handleDownVote(id) {
     this.updateVotes(id, false);
   }
-
   // handleUp &-Down so ähnliche Func kann man in einer Hauptfunktion schreiben und das verteilen, wie updateVotes
 
   handleUpdateJokes(newJokes) {
@@ -109,18 +109,6 @@ export default class App extends Component {
           />
         )}
       </div>
-
-      // //test
-      // <div className='App'>
-      //   <div className='background-loading-smiley'>
-      //     <FontAwesomeIcon
-      //       icon={faLaughSquint}
-      //       size='lg'
-      //       spin
-      //       className='loading-smiley'
-      //     />
-      //   </div>
-      // </div>
     );
   }
 }

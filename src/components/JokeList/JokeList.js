@@ -10,10 +10,11 @@ export default class JokeList extends Component {
   }
 
   // verknupft handleUpVote func mit onHadleUp props id von JokeList id(=genauer gesagt id von JokeItem id von unten map)
-  //
   handleUpVote(id) {
+    console.log(id);
     this.props.onHandleUpVote(id);
   }
+
   // hier onHandle-Vote sind keine Funktion von App.js sondern Props ind jsx von app.js von JokeList
   handleDownVote(id) {
     this.props.onHandleDownVote(id);
