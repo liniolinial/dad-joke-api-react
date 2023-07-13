@@ -7,12 +7,12 @@ import fetchNewJokes from "../../services/fetchNewJokes";
 export default class Sidebar extends Component {
   constructor(props) {
     super(props);
-    this.state = { initialDataLoaded: false, page: 1 };
+    this.state = { initialDataLoaded: false, page: 2 };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    // console.log(length);
+    console.log("click");
     this.setState((st) => ({
       page: st.page + 1,
     }));

@@ -18,15 +18,10 @@ export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
       joke.upVotes = 0;
       data.push(joke);
     });
+
     onUpdateJokes(data);
     onUpdateLoaded(true);
   });
-
-  // fetches.push(request);
-  // Promise.all(fetches).then(() => {
-  //   // onUpdateLoaded(true);
-  //   onUpdateJokes(data);
-  // });
 }
 
 //mit setTimeout
