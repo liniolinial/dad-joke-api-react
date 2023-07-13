@@ -39,6 +39,7 @@ export default class App extends Component {
       (newJokes) => {
         const sortedJokes = this.sortJokes(newJokes);
         this.setState({ jokes: sortedJokes });
+        // this.setState({ jokes: newJokes });
       },
       this.handleUpdateLoaded,
     );
@@ -70,7 +71,7 @@ export default class App extends Component {
   // handleUp &-Down so ähnliche Func kann man in einer Hauptfunktion schreiben und das verteilen, wie updateVotes
 
   handleUpdateJokes(newJokes) {
-    const newJokesArray = [...this.state.jokes];
+    const newJokesArray = [...newJokes, ...this.state.jokes]; //hier ...newJokes hinzufügen: alte state joke einfach weiter hinzufügen
     newJokes.forEach((newJoke) => {
       if (!newJokesArray.find((joke) => joke.id === newJoke.id))
         newJokesArray.push(newJoke);
@@ -87,27 +88,33 @@ export default class App extends Component {
   render() {
     return (
       <div className='App'>
-        {this.state.isLoaded ? (
-          <div className='Jokepage'>
-            <Sidebar
-              onUpdateJokes={this.handleUpdateJokes}
-              onUpdateLoaded={this.handleUpdateLoaded}
-              isLoaded={this.state.isLoaded}
-            />
-            <JokeList
-              jokes={this.state.jokes}
-              onHandleUpVote={this.handleUpVote}
-              onHandleDownVote={this.handleDownVote}
-            />
-          </div>
-        ) : (
+        {/* {this.state.isLoaded ? (  -> wegen component reMount macht html weg. guck DOM und docs!*/}
+        <div
+          className='Jokepage'
+          style={{ display: this.state.isLoaded ? "flex" : "none" }}>
+          <Sidebar
+            onUpdateJokes={this.handleUpdateJokes}
+            onUpdateLoaded={this.handleUpdateLoaded}
+            isLoaded={this.state.isLoaded}
+          />
+          <JokeList
+            jokes={this.state.jokes}
+            onHandleUpVote={this.handleUpVote}
+            onHandleDownVote={this.handleDownVote}
+          />
+          <h1>Jokes count {this.state.jokes.length}</h1>
+        </div>
+        {/* ) : ( */}
+        <div style={{ display: !this.state.isLoaded ? "block" : "none" }}>
           <FontAwesomeIcon
             icon={faLaughSquint}
             size='lg'
             spin
             className='loading-smiley'
           />
-        )}
+        </div>
+
+        {/* )} */}
       </div>
     );
   }

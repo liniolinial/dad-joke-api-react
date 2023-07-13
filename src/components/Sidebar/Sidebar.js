@@ -7,17 +7,19 @@ import fetchNewJokes from "../../services/fetchNewJokes";
 export default class Sidebar extends Component {
   constructor(props) {
     super(props);
-    this.state = { initialDataLoaded: false, page: 2 };
+    this.state = { page: 1 };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    console.log("click");
-    this.setState((st) => ({
-      page: st.page + 1,
-    }));
+    let nextPageIndex = this.state.page + 1;
+    console.log(nextPageIndex);
+    this.setState({
+      page: nextPageIndex,
+    });
+    console.log(this.state.page);
     fetchNewJokes(
-      this.state.page,
+      nextPageIndex,
       this.props.onUpdateJokes,
       this.props.onUpdateLoaded,
     );

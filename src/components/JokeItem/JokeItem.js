@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Button from "../Button/Button";
-import Sidebar from "../Sidebar/Sidebar";
 
 import "../JokeItem/JokeItem.css";
 import { library } from "@fortawesome/fontawesome-svg-core";

@@ -12,6 +12,7 @@ export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
   );
 
   request.then((response) => {
+    console.log("request");
     const jokes = response.data.results;
 
     jokes.forEach((joke) => {
