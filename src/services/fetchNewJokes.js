@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default function fetchNewJokes(page, onUpdateJokes, onUpdateLoaded) {
+  // diese 1,2 Parameter = call back funktionen
   onUpdateLoaded(false);
   const data = [];
 

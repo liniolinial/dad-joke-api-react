@@ -34,6 +34,7 @@ export default class JokeList extends Component {
               upVotes={j.upVotes}
               onHandleUpVote={this.handleUpVote}
               onHandleDownVote={this.handleDownVote}
+              // on EventListener binding on = callback func from app.js
             />
           ))}
         </div>

@@ -176,6 +176,7 @@ export default class JokeItem extends Component {
               style={{ borderColor: this.getColor() }}>
               {this.props.upVotes}
             </Button>
+            {/* //->div */}
             <Button
               className='button__down'
               onClick={this.handleDownVote}

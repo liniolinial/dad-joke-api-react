@@ -6,6 +6,7 @@ import fetchNewJokes from "../../services/fetchNewJokes";
 
 export default class Sidebar extends Component {
   constructor(props) {
+    console.log("init");
     super(props);
     this.state = { page: 1 };
     this.handleClick = this.handleClick.bind(this);
